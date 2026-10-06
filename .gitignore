@@ -1,0 +1,13 @@
+
+
+# Local configuration and credentials
+.env
+.env.*
+!.env.example
+__pycache__/
+*.pyc
+.idea/
+*client_secret*.json
+*service_account*.json
+gismen-*.json
+config.ini

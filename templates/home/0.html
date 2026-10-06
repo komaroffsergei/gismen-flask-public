@@ -1,0 +1,41 @@
+<h3>Step 1</h3>
+{{res}}
+
+<form method="post" action="/">
+    Select entity type: <br>
+    <select name="entity_type" id="entity_type">
+        {% for entity_type in entity_types %}
+            <option value="{{entity_type.name}}">
+                {{entity_type.display_name}}
+                (
+                    {{ entity_type.value }}
+                    {% for entity in entity_type.entities %}
+                        {% for synonym in entity.synonyms %}
+                            {{ synonym }}
+                        {% endfor %}
+                    {% endfor %}
+                )
+            </option>
+        {% endfor %}
+    </select>
+    <br>
+    Select intent: <br>
+    <select name="intent" id="intent">
+        {% for intent in intents %}
+            <option value="{{intent.name}}">
+                {{intent.display_name}}
+            </option>
+        {% endfor %}
+    </select>
+
+
+    <br>
+    <hr>
+    Word: <input type="text" name="word"> <br>
+    Synonyms: <input type="text" name="synonyms">
+
+    <br>
+    <hr>
+
+    <button type="submit">SEND</button>
+</form>
